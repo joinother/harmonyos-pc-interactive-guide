@@ -1,15 +1,12 @@
-node_modules/
-oh_modules/
-.idea/
-.hvigor/
-.cxx/
-.clangd/
-.clang-format/
-.clang-tidy/
-build/
-.preview/
-*.har
-*.p12
-*.cer
-*.p7b
+# HarmonyOS 通用
+.certs/
+.certs-pwd.secret
+.env
 local.properties
+**/.preview/
+**/build/
+**/oh_modules/
+**/.hvigor/
+**/.idea/
+**/node_modules/
+.DS_Store
