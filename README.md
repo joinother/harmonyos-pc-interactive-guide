@@ -1,7 +1,7 @@
 # HarmonyOS PC（2in1）交互能力演示 —— PcShowcase
 
 面向鸿蒙 PC（2in1）的原生 ArkTS 演示工程，bundleName：`com.example.pcshowcase`。
-五个顶部 Tab 逐一**真实调用**系统能力，调用结果与错误码直接显示在界面日志区；不支持的特性如实标注，不做假实现。
+六个顶部 Tab 逐一**真实调用**系统能力，调用结果与错误码直接显示在界面日志区；不支持的特性如实标注，不做假实现。
 
 实测设备：HUAWEI MateBook Pro（HAD-W32，HarmonyOS 7.0.0.111，API 26，2in1）。
 
@@ -14,6 +14,7 @@
 | 实况窗 | SDK 26 公开接口中无 `liveViewManager` / `@kit.LiveViewKit`；页面做 `canIUse` 探测并如实说明 | ❌ 本版本不支持（诚实标注） |
 | 悬浮与透明 | 应用内浮层（Stack + 半透明 + 圆角 + 可拖动 + 不透明度滑块）；系统级悬浮窗说明权限限制 | ✅ 应用内可用；系统级三方受限 |
 | 子窗口 | 五种窗口形态，见下表 | 见下表 |
+| 鼠标样式 | `getCursorController().setCursor` 遍历 `pointer.PointerStyle` 全部 52 个命名样式（49-51 激光类仅手写笔空中鼠标，点击时如实提示未调用）；`setCustomCursor` 加载 `rawfile/cursor_star.png` 自定义光标；`restoreDefault()` 恢复；`pointer.setPointerVisible(false)` 隐藏系统光标 + `onMouse` 旋转跟随图层（动画光标对照方案） | 代码真实调用，结果见日志区 |
 
 ### 子窗口五种形态实测（API 26 · 2in1）
 

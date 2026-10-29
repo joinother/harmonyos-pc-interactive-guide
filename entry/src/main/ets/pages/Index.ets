@@ -3,12 +3,13 @@ import { NotifyCenter } from './NotifyCenter';
 import { LiveViewPage } from './LiveViewPage';
 import { OverlayPage } from './OverlayPage';
 import { SubWindowPage } from './SubWindowPage';
+import { MouseStylePage } from './MouseStylePage';
 
 @Entry
 @Component
 struct Index {
   @State currentTab: number = 0;
-  private tabTitles: string[] = ['窗口沙盘', '通知中心', '实况窗', '悬浮与透明', '子窗口'];
+  private tabTitles: string[] = ['窗口沙盘', '通知中心', '实况窗', '悬浮与透明', '子窗口', '鼠标样式'];
 
   @Builder
   tabItem(idx: number, title: string) {
@@ -47,8 +48,12 @@ struct Index {
         TabContent() {
           SubWindowPage()
         }.tabBar(this.tabItem(4, this.tabTitles[4]))
+
+        TabContent() {
+          MouseStylePage()
+        }.tabBar(this.tabItem(5, this.tabTitles[5]))
       }
-      .barMode(BarMode.Fixed)
+      .barMode(BarMode.Scrollable)
       .barBackgroundColor('#2C2C2E')
       .onChange((i: number) => {
         this.currentTab = i;
